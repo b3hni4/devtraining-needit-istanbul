@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[var app = angular.module("myModule",[]);
+app.controller('firstController', function ($scope){
+	$scope.message = "Yet Another App!"; 
+});
+
+app.controller('dataController', function ($scope){
+	var listEmployees = [
+		{ firstName: "Hadi", lastName: "Behnia", gender: "male" },
+		{ firstName: "Reza", lastName: "Behnia", gender: "male" },
+		{ firstName: "Ava", lastName: "Behnia", gender: "female" }
+	];
+	$scope.employees = listEmployees;
+});
+]]></client_script>
+        <description>Test Angular JS Controllers Test 3</description>
+        <direct>false</direct>
+        <endpoint>x_58872_needit_Angular Test Page 05.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+   <head>
+      <title>Angular JS Controller</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+	<body ng-app="myModule">
+		<div ng-controller="firstController">
+		{{ message }}
+		</div>
+		<br/>
+		<div ng-controller="dataController">
+			<table style="width:500px; border:2px solid black;">
+				<thead>
+					<tr style="test-align:left">
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Gender</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="employee in employees">
+						<th>{{ employee.firstName}}</th>
+						<th>{{ employee.lastName }}</th>
+						<th>{{ employee.gender }}</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</j:jelly>]]></html>
+        <name>Angular Test Page 05</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-02-22 13:05:24</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>98112ebbdb58130061d85ec0cf96194d</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Angular Test Page 05</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ui_page_98112ebbdb58130061d85ec0cf96194d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-02-23 12:25:34</sys_updated_on>
+    </sys_ui_page>
+</record_update>
