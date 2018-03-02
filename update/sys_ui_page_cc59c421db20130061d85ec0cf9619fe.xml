@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[var app = angular.module("myModule",[]);
+
+app.controller('formController', function ($scope){
+	$scope.reset = function () {
+		$scope.firstName = "";
+		$scope.lastName = "";
+		$scope.email = "";
+	};
+});]]></client_script>
+        <description>AngularJS Form Validation Test 2</description>
+        <direct>false</direct>
+        <endpoint>x_58872_needit_Angular Test Page 09.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+   <head>
+      <title>AngularJS Sample App</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+	<body>
+		<div ng-app="myModule" ng-controller="formController">
+		<br/>
+			<form name="studentForm">
+			<table border="0">
+				<tr style="test-align:left">
+					<td>Enter first name:</td>
+					<td>
+						<input name="firstname" type="text" ng-model="firstName" ng-minlength="3" ng-maxlength="15" required="required" />
+						<span style="color:red">
+							<span ng-show="studentForm.firstname.$error.required">
+								First Name is required.
+							</span>
+							
+							<span ng-show="studentForm.firstname.$error.minlength">
+								First Name is too short!!
+							</span>
+							
+							<span ng-show="studentForm.firstname.$error.maxlength">
+								First Name is too long!!
+							</span>
+						</span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Enter last name:</td>
+					<td>
+						<input name="lastname" type="text" ng-model="lastName" required="required" />
+						<span style="color:red">
+							<span ng-show="studentForm.lastname.$error.required">
+								Last Name is required.
+							</span>
+						</span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Enter email:</td>
+					<td>
+						<input name="email" type="email" ng-model="email" required="required" />
+						<span style="color:red">
+							<span ng-show="studentForm.email.$error.required">
+								Email is required.
+							</span>
+							<span ng-show="studentForm.email.$error.email">
+								Invalid email address.
+							</span>
+						</span>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<button ng-click="reset()">Reset</button>
+					</td>
+					
+					<td>
+						<button ng-disabled="studentForm.fristname.$invalid || 
+											 studentForm.lastname.$invalid || 
+											 studentForm.email.$invalid" ng-click="submit()">Submit</button>
+					</td>
+				</tr>
+				
+			</table>
+			</form>
+		</div>
+	</body>
+</j:jelly>]]></html>
+        <name>Angular Test Page 09</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-02-27 12:55:31</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>cc59c421db20130061d85ec0cf9619fe</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Angular Test Page 09</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ui_page_cc59c421db20130061d85ec0cf9619fe</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-02-27 14:11:22</sys_updated_on>
+    </sys_ui_page>
+</record_update>
